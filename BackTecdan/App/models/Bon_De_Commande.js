@@ -1,8 +1,5 @@
 // Import de Mongoose
 const mongoose = require("mongoose");
-//email unique
-var uniqueValidator = require("mongoose-unique-validator");
-const bcrypt = require("bcrypt");
 
 // Création du schéma pour la collection 
 const BonShema = new mongoose.Schema({
