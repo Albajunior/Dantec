@@ -1,4 +1,4 @@
-const Bon_Cmd = require("../models/Bon_De_Commande");
+const Bon_Cmd = require("../Models/Bon_De_Commande");
 
 exports.create = async (req, res) => {
     try {
@@ -15,6 +15,7 @@ exports.create = async (req, res) => {
         Service: req.body.Service,
         Numero_Salle: req.body.Numero_Salle,
         Nom_Medecin: req.auth.userName,
+        Id_Medecin: req.auth.userId,
         createDate: Date.now()
       }
   

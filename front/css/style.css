@@ -29,6 +29,7 @@ h2 {
 	justify-content: center;
 }
 .limitedWidthBlock {
+	margin-top: 5px;
 	width: 100%;
 	max-width: 1400px;
 	padding: 0 25px;
@@ -63,6 +64,9 @@ h2 {
 .informations ul {
 	display: flex;
 	padding-left: 0;
+}
+.headerInfo{
+	margin-top: 10px;
 }
 .informations ul li {
 	display: flex;

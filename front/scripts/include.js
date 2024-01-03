@@ -6,7 +6,7 @@ header.innerHTML =
 <header>
 <div class="limitedWidthBlockContainer informations">
   <div class="limitedWidthBlock">
-    <ul>
+    <ul class="headerInfo">
       <li>
         <img
           src="../images/icons/phone.svg"
@@ -77,6 +77,9 @@ footer.innerHTML =
     </div>
     <div>
       <p>Email : contact@dantecblood.com</p>
+    </div>
+    <div>
+      <p><a href="rgpd.html"> Mentions légales </a></p>
     </div>
   </div>
 </div>

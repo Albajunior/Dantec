@@ -90,15 +90,15 @@ function confirmerSuppression() {
   if (confirm("Voulez-vous supprimer cet utilisateur ?")) {
     const bouton = document.getElementById("delete");
     const valeur = bouton.value;
-    deletebon(valeur, optionsDelete);
+    deleteUser(valeur, optionsDelete);
   } else {
     // Si l'utilisateur clique sur 'Annuler' dans le pop-up, ne rien faire
     alert("Suppression annulée !");
   }
 }
 
-function deletebon(id_bon, optionsDelete) {
-  fetch("http://localhost:3000/api/auth/delete/" + id_bon, optionsDelete)
+function deleteUser(id_medecin, optionsDelete) {
+  fetch("http://localhost:3000/api/auth/delete/" + id_medecin, optionsDelete)
     .then((response) => {
       if (response.status === 204) {
         alert("Delete Good");

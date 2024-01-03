@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express();
-const bonCtrl = require("../controllers/Bon_De_Commande");
-const auth = require("../middleware/auth")
+const bonCtrl = require("../Controllers/Bon_De_Commande");
+const auth = require("../Middleware/auth")
 
 router.post("/create", auth, bonCtrl.create);
 router.get("/readall", auth, bonCtrl.readAll);

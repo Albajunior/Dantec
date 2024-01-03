@@ -10,9 +10,6 @@ document.getElementById("loginForm").addEventListener("click", function (e) {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
-  // validatePassword();
-  // validateEmail();
-
   if (validateEmail(email) && validatePassword(password)) {
     const bodyParameters = {
       email: email,
@@ -27,23 +24,18 @@ document.getElementById("loginForm").addEventListener("click", function (e) {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
+        "Access-Control-Allow-Methods": "POST",
       },
     };
-    // console.log(options);
 
     fetch("http://localhost:3000/api/auth/login", options)
       .then((response) => response.json())
       .then((data) => {
-        // const user = data;
-        // sessionStorage.setItem('Info', JSON.stringify(data));
         if (!data.error) {
           const token = data.token;
           sessionStorage.setItem("InfoUser", JSON.stringify(data));
           sessionStorage.setItem("Token", JSON.stringify(token));
-          console.log(sessionStorage.getItem('Token'));
-          //console.log(data.token);
-          // console.log(data.user);
+          console.log(sessionStorage.getItem("Token"));
           window.location.href = "index.html";
         } else {
           alert("Email ou Mot de Passe incorrect");
@@ -58,8 +50,6 @@ document.getElementById("loginForm").addEventListener("click", function (e) {
     alert("Veuiller bien remplir les 2 champs");
   }
 });
-
-//   //controle email
 
 function validateEmail(email) {
   // Expression régulière pour vérifier le format de l'email

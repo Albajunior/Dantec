@@ -83,7 +83,7 @@ document.getElementById("btnform").addEventListener("click", function (e) {
 
 function controlePrenom() {
   if (!firstName.checkValidity()) {
-    // Si le champ n'est pas valide selon le pattern
+    // Si le champ n'est pas valide 
     firstNameErrorMsg.textContent =
       "Le prenom doit contenir entre 3 et 20 lettres.";
     firstNameErrorMsg.style.color = "red";
@@ -97,7 +97,7 @@ function controlePrenom() {
 
 function controleNom() {
   if (!lastName.checkValidity()) {
-    // Si le champ n'est pas valide selon le pattern
+    // Si le champ n'est pas valide 
     lastNameErrorMsg.textContent =
       "Le nom doit contenir entre 3 et 20 lettres.";
     lastNameErrorMsg.style.color = "red";
@@ -111,7 +111,7 @@ function controleNom() {
 
 function controleTelephone() {
   if (!telephone.checkValidity()) {
-    // Si le champ n'est pas valide selon le pattern
+    // Si le champ n'est pas valide 
     telephoneErrorMsg.textContent = "Format non correct ";
     telephoneErrorMsg.style.color = "red";
     return false;
@@ -124,7 +124,7 @@ function controleTelephone() {
 
 function controleEmail() {
   if (!email.checkValidity()) {
-    // Si le champ n'est pas valide selon le pattern
+    // Si le champ n'est pas valide 
     emailErrorMsg.textContent = "Email non valide. ";
     emailErrorMsg.style.color = "red";
     return false;
@@ -137,7 +137,7 @@ function controleEmail() {
 
 function controlePassword() {
   if (!password.checkValidity()) {
-    // Si le champ n'est pas valide selon le pattern
+    // Si le champ n'est pas valide 
     passwordErrorMsg.textContent = "Mot de passe non valide. ";
     passwordErrorMsg.style.color = "red";
     return false;

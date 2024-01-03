@@ -60,7 +60,7 @@ function getAllBon() {
           panierEncours = panierEncours +
           `
           <div class="col">
-              <div class="card text-bg-danger" style="width: 18rem;">
+              <div class="card " style="width: 18rem; background-color: #44a7e7">
                 <div class="card-body">
                   <h5 class="card-title">${data[m].NomPatient} ${data[m].PrenomPatient} </h5>
                   <p class="card-text">Service : ${data[m].Service} </p>

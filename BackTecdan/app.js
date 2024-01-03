@@ -1,8 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const db = require('./App/models/db');
-const router = require("./App/routes/index.js");
+const db = require('./App/Models/db.js');
+const router = require("./App/Routes/index.js");
 const bodyParser = require('body-parser');
 
 
