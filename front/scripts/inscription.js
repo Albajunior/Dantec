@@ -3,6 +3,10 @@ if (!sessionStorage.getItem("Token")) {
   console.log(" Info existe dans le sessionStorage");
 }
 
+document.getElementById("btnform").addEventListener("click", function (e) {
+  e.preventDefault();
+
+
 let firstName = document.querySelector("#firstName").value;
 let lastName = document.querySelector("#lastName").value;
 let telephone = document.querySelector("#telephone").value;
@@ -18,20 +22,16 @@ let sexeErrorMsg = document.querySelector("#sexeErrorMsg").value;
 let emailErrorMsg = document.querySelector("#emailErrorMsg").value;
 let passwordErrorMsg = document.getElementById("passwordErrorMsg").value;
 
-document.getElementById("btnform").addEventListener("click", function (e) {
-  e.preventDefault();
-
   controlePrenom();
   controleEmail();
   controleNom();
-  controleTelephone();
+  //controleTelephone();
   controlePassword();
 
   if (
     controlePrenom() &&
     controleEmail() &&
     controleNom() &&
-    controleTelephone() &&
     controlePassword()
   ) {
     const medecin = {
@@ -65,7 +65,8 @@ document.getElementById("btnform").addEventListener("click", function (e) {
           response.json().then((data) => {
             console.log("Données récupérées avec succès :", data);
             sessionStorage.setItem("InfoMedecin", JSON.stringify(data));
-            // Faites quelque chose avec les données récupérées ici
+            alert("Medecin ajouter avec Succes");
+            window.location.href = "gestion_medecin.html";
           });
         } else {
           // Le statut de la réponse n'est pas 201

@@ -50,13 +50,10 @@ userSchema.plugin(uniqueValidator);
 
 //hashPassword
 userSchema.pre("save", async function (next) {
-  if (this.isModified("password")) {
-    this.password = await bcrypt.hash(this.password, 10);
+  if (this.isModified("createDate")) {
+    this.createDate = Date.now();
   }
-  //middleware Date
-
   this.createDate = Date.now();
-
   next();
 });
 

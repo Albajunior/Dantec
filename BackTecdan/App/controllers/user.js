@@ -5,7 +5,7 @@ var jwt = require("jsonwebtoken");
 exports.signup = async (req, res) => {
   try {
     console.log(req.body);
-    req.body.password = await bcrypt.hash(req.body.password, 10);
+    motdepasse = await bcrypt.hash(req.body.password, 10);
 
     const payload = {
       prenom: req.body.prenom,
@@ -14,7 +14,7 @@ exports.signup = async (req, res) => {
       telephone: req.body.telephone,
       specialite: req.body.specialite,
       email: req.body.email,
-      password: req.body.password,
+      password: motdepasse,
       createDate: Date.now(),
     }
     const user = new User(payload);
@@ -26,7 +26,7 @@ exports.signup = async (req, res) => {
   }
 };
 
-exports.login = async (req, res) => {
+exports.loginn = async (req, res) => {
   try {
     const user = await User.findOne({ email: req.body.email, password: req.body.password }).exec();
 
@@ -56,42 +56,42 @@ exports.login = async (req, res) => {
   }
 };
 
-// exports.login = async (req, res) => {
-//   try {
-//     const user = await User.findOne({ email: req.body.email, password: req.body.passwordd }).exec();
+exports.login = async (req, res) => {
+  try {
+    const { email, password } = req.body;
 
-//     if (user === null) {
-//       //console.log("Not found!");
-//       return res.status(404).json({ error: "Utilisateur non trouvé" });
-//     } else {
-//       console.log(user.email);
+    const user = await User.findOne({ email }).exec();
 
-//       const match = await bcrypt.compare(req.body.password, user.password);
-//       //return match;
+    if (user === null) {
+      //console.log("Not found!");
+      return res.status(404).json({ error: "Utilisateur non trouvé" });
+    } 
+      console.log(user.email);
 
-//       if (match) {
-//         console.log("login successful");
+      const passwordmatch = await bcrypt.compare(password, user.password);
 
-//         const payload = {
-//           id: user.id,
-//           email: user.email,
-//           nom: user.nom,
-//         };
+      if (passwordmatch) {
+        console.log("login successful");
 
-//         const token = jwt.sign(payload, process.env.CLE, { expiresIn: "1h" });
-//         res.status(200).json({
-//           user: user,
-//           token: token,
-//         });
-//       } else {
-//         return res.status(401).json({ error: " incorrect" });
-//       }
-//     }
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ erreur: "Erreur lors de la récupération" });
-//   }
-// };
+        const payload = {
+          id: user.id,
+          email: user.email,
+          nom: user.nom,
+        };
+
+        const token = jwt.sign(payload, process.env.CLE, { expiresIn: "1h" });
+        res.status(200).json({
+          user: user,
+          token: token,
+        });
+      } else {
+        return res.status(401).json({ error: " incorrect" });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ erreur: "Erreur lors de la récupération" });
+  }
+};
 
 exports.readAll = async (req, res) => {
   try {
