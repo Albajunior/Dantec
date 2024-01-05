@@ -38,6 +38,18 @@ exports.readAll = async (req, res) => {
   }
 };
 
+exports.mesBon= async (req, res) => {
+  try {
+    const bon_Cmd = await Bon_Cmd.find({
+      Id_Medecin: req.auth.userId
+    });
+    res.status(200).json(bon_Cmd);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ erreur: "Erreur lors de la récupération" });
+  }
+};
+
 exports.deleteBon_Cmd = async (req, res) => {
   try {
     const bon_CmdId = req.params.id;
@@ -103,4 +115,5 @@ exports.findOne= async (req, res) => {
     res.status(500).json({ erreur: "Erreur lors de la récupération" });
   }
 };
+
 
