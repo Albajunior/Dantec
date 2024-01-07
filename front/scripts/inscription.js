@@ -1,6 +1,6 @@
-if (!sessionStorage.getItem("Token")) {
+if (!sessionStorage.getItem("Admin")) {
   window.location.href = "connexion.html";
-  console.log(" Info existe dans le sessionStorage");
+ // console.log(" Access Denied");
 }
 
 document.getElementById("btnform").addEventListener("click", function (e) {
@@ -15,17 +15,10 @@ let specialite = document.querySelector("#specialite").value;
 let email = document.querySelector("#email").value;
 let password = document.getElementById("password").value;
 
-let firstNameErrorMsg = document.querySelector("#firstNameErrorMsg").value;
-let lastNameErrorMsg = document.querySelector("#lastNameErrorMsg").value;
-let telephoneErrorMsg = document.querySelector("#telephoneErrorMsg").value;
-let sexeErrorMsg = document.querySelector("#sexeErrorMsg").value;
-let emailErrorMsg = document.querySelector("#emailErrorMsg").value;
-let passwordErrorMsg = document.getElementById("passwordErrorMsg").value;
 
   controlePrenom();
   controleEmail();
   controleNom();
-  //controleTelephone();
   controlePassword();
 
   if (
@@ -80,7 +73,14 @@ let passwordErrorMsg = document.getElementById("passwordErrorMsg").value;
   }
 });
 
-//   //controle prenom
+let firstNameErrorMsg = document.querySelector("#firstNameErrorMsg");
+let lastNameErrorMsg = document.querySelector("#lastNameErrorMsg");
+let telephoneErrorMsg = document.querySelector("#telephoneErrorMsg");
+let sexeErrorMsg = document.querySelector("#sexeErrorMsg");
+let emailErrorMsg = document.querySelector("#emailErrorMsg");
+let passwordErrorMsg = document.getElementById("passwordErrorMsg");
+
+//   //controle 
 
 function controlePrenom() {
   if (!firstName.checkValidity()) {

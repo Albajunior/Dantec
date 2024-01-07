@@ -1,12 +1,16 @@
 // Vérification de l'existence d'un user dans le sessionStorage
-if (sessionStorage.getItem("InfoUser")) {
-  window.location.href = "index.html";
-  console.log(" Info existe dans le sessionStorage");
+if (sessionStorage.getItem("Token")) {
+  if (sessionStorage.getItem("Admin")) {
+    window.location.href = "index.html";
+  } else {
+    window.location.href = "profile.html";
+  }
 }
 
 document.getElementById("loginForm").addEventListener("click", function (e) {
   e.preventDefault();
 
+  let passwordrrorMsg = document.querySelector("#passwordrrorMsg");
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
@@ -32,19 +36,25 @@ document.getElementById("loginForm").addEventListener("click", function (e) {
       .then((response) => response.json())
       .then((data) => {
         if (!data.error) {
+          passwordrrorMsg.textContent = "";
           const token = data.token;
-          sessionStorage.setItem("InfoUser", JSON.stringify(data));
           sessionStorage.setItem("Token", JSON.stringify(token));
-          console.log(sessionStorage.getItem("Token"));
-          window.location.href = "index.html";
+          if (data.user.email == "adminblood@gmail.com") {
+            sessionStorage.setItem("Admin", JSON.stringify(data.user.email));
+            window.location.href = "index.html";
+          } else {
+            sessionStorage.setItem("User", JSON.stringify(data.user.email));
+            window.location.href = "profile.html";
+          }
         } else {
-          alert("Email ou Mot de Passe incorrect");
-          console.log(data.error);
+          passwordrrorMsg.textContent =
+            "Email ou Mot de Passe incorrect";
+          passwordrrorMsg.style.color = "red";
         }
       })
       .catch((error) => {
         console.error("Erreur lors de la connexion:", error);
-        alert("Erreur lors de la connexion");
+        alert("Erreur Server");
       });
   } else {
     alert("Veuiller bien remplir les 2 champs");

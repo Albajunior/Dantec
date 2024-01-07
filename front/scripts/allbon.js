@@ -1,6 +1,5 @@
-if (!sessionStorage.getItem("Token")) {
+if (!sessionStorage.getItem("Admin")) {
   window.location.href = "connexion.html";
-  console.log(" No Token");
 }
 
 const Token = sessionStorage.getItem("Token");
@@ -41,7 +40,10 @@ function getAllBon() {
       location.reload();
     })
     .then(function (data) { 
-      console.log(data);
+      if (data.length == 0) {
+        document.querySelector('.vide').innerHTML = 'Aucune demande';
+      }
+
 
       let titre1 = document.getElementById('titre1');
       let titre2 = document.getElementById('titre2');
@@ -55,7 +57,7 @@ function getAllBon() {
       
       for (m = 0; m < data.length; m++) {
 
-        if (data[m].Nombre_Poche == 2){
+        if (data[m].Etat == false){
 
           panierEncours = panierEncours +
           `

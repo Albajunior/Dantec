@@ -39,7 +39,7 @@
                   <p id="NomPatientErrorMsg"></p>
                 </div>
                 <div class="cart__order__form__question">
-                  <label for="PrenomPatient">Nom: </label>
+                  <label for="PrenomPatient">Prenom: </label>
                   <input
                     type="text"
                     name="PrenomPatient"
@@ -50,31 +50,19 @@
                   <p id="PrenomPatientErrorMsg"></p>
                 </div>
                 <div class="cart__order__form__question">
-                  <label for="telephone">Telephone: </label>
-                  <input
-                    type="text"
-                    name="telephone"
-                    id="telephone"
-                    pattern="^[0-9]{1,3}[a-zA-Z0-9 ]{10,50}$"
-                    required
-                  />
-                  <p id="telephoneErrorMsg"></p>
-                </div>
-                <div class="cart__order__form__question">
                   <label for="sexe">Sexe: </label>
                   <select id="sexe" name="sexe">
                     <option value="F">Féminin</option>
                     <option value="M">Masculin</option>
                   </select>
-                  <p id="sexeErrorMsg"></p>
                 </div>
                 <div class="cart__order__form__question">
                   <label for="age">Age: </label>
                   <input
-                    type="text"
+                    type="number"
                     name="age"
                     id="age"
-                    pattern="/^(1[8-9]|[2-9][0-9]|100)$/"
+                    min="0"
                     required
                   />
                   <p id="ageErrorMsg"></p>
@@ -83,34 +71,34 @@
                   <label for="service">Service Demandeur: </label>
                   <select id="service" name="sexe">
                     <option value="Generaliste">Generaliste</option>
-                    <option value="AAAAA">AAAAA</option>
-                    <option value="MMMM">MMMM</option>
+                    <option value="Chirurgie">Chirurgie</option>
+                    <option value="Odontologie">Odontologie</option>
+                    <option value="Pneumo">Pneumo</option>
+                    <option value="urgence">Urgence</option>
                   </select>
-                  <p id="sexeErrorMsg"></p>
+                  <p id="serviceErrorMsg"></p>
                 </div>
                 <div class="cart__order__form__question">
                   <label for="groupe_Sanguin">Groupe_Sanguin: </label>
-                  <input type="groupe_Sanguin" name="groupe_Sanguin" id="groupe_Sanguin" required />
+                  <input type="groupe_Sanguin" name="groupe_Sanguin" id="groupe_Sanguin" pattern=".{3}" required />
                   <p id="groupe_SanguinErrorMsg"></p>
                 </div>
                 <div class="cart__order__form__question">
                   <label for="degres_urgence">Degres d'urgence: </label>
-                  <input
-                    type="degres_urgence"
-                    name="degres_urgence"
-                    id="degres_urgence"
-                    required
-                  />
+                  <select id="degres_urgence" name="degres_urgence">
+                    <option value="1">1</option>
+                    <option value="2">2 (Urgence) </option>
+                  </select>
                   <p id="degres_urgencerrorMsg"></p>
                 </div>
                 <div class="cart__order__form__question">
                     <label for="nombre_Poche">Nombre de Poche: </label>
-                    <input type="nombre_Poche" name="nombre_Poche" id="nombre_Poche" required />
+                    <input type="nombre_Poche" name="nombre_Poche" id="nombre_Poche" pattern="[1-9]|10" required />
                     <p id="nombre_PocheErrorMsg"></p>
                 </div>
                 <div class="cart__order__form__question">
                     <label for="numero_Salle">numero Salle Patient: </label>
-                    <input type="numero_Salle" name="numero_Salle" id="numero_Salle" required />
+                    <input type="numero_Salle" name="numero_Salle" id="numero_Salle" pattern=".{5}" />
                     <p id="numero_SalleErrorMsg"></p>
                 </div>
 

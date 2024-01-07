@@ -142,14 +142,13 @@ if (!idMedecin || !token) {
               e.preventDefault();
             
               const medecin = {
-                    firstName: firstName,
-                    lastName: lastName,
+                    prenom: firstName,
+                    nom: lastName,
                     telephone: telephone,
                     sexe: sexe,
                     specialite: specialite,
                     email: email,
-                    password: password,
-                    createDate: new Date()
+                    password: password
               };
           
             // Création de l'entête de la requête

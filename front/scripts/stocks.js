@@ -54,7 +54,7 @@ function getAllPoche() {
                 </li>
               </ul>
               <div class="card-body" style="text-align: center">
-                  <button id="delete" class="edit" value="${data[m]._id}" onclick="confirmerEdit()">Modifier Stock</button>
+                  <button id="delete" class="edit" value="${data[m]._id}" onclick="confirmerEdit(this)">Modifier Stock</button>
               </div>
             </div>
           </div> `;
@@ -63,12 +63,10 @@ function getAllPoche() {
     });
 }
 
-function confirmerEdit() {
+function confirmerEdit(button) {
     const Stock = prompt('Veuillez saisir le nouveau stock :', '');
     if (Stock !== null && Stock > 0) {
-        const bouton = document.getElementById("delete");
-        const idpoche = bouton.value;
-
+        const idpoche = button.value;
         const NewStock = {
             Stock,
             createDate: new Date()
@@ -99,7 +97,7 @@ function confirmerEdit() {
     .then(response => {
       if (response.status === 200){
         alert('Stock Modifier');
-       // location.reload();
+        location.reload();
       }else {
         console.log('bad requete');
       }

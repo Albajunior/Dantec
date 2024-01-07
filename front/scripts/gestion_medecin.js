@@ -1,6 +1,5 @@
-if (!sessionStorage.getItem("Token")) {
+if (!sessionStorage.getItem("Admin")) {
   window.location.href = "connexion.html";
-  console.log(" No Token");
 }
 
 const Token = sessionStorage.getItem("Token");
@@ -76,7 +75,7 @@ function getAllMedecins() {
             <td>${data[m].email}</td>
             <td>
             <a href="editmedecin.html?id=${data[m]._id}"> <button class="edit" >Modifier</button></a>
-            <button id="delete" value="${data[m]._id}" onclick="confirmerSuppression()">Supprimer</button>
+            <button id="delete" value="${data[m]._id}" onclick="confirmerSuppression(this)">Supprimer</button>
             </td>
           </tr>
         `;
@@ -86,10 +85,11 @@ function getAllMedecins() {
     });
 }
 
-function confirmerSuppression() {
+function confirmerSuppression(button) {
   if (confirm("Voulez-vous supprimer cet utilisateur ?")) {
-    const bouton = document.getElementById("delete");
-    const valeur = bouton.value;
+
+    const valeur = button.value;
+    console.log(valeur);
     deleteUser(valeur, optionsDelete);
   } else {
     // Si l'utilisateur clique sur 'Annuler' dans le pop-up, ne rien faire
@@ -101,7 +101,6 @@ function deleteUser(id_medecin, optionsDelete) {
   fetch("http://localhost:3000/api/auth/delete/" + id_medecin, optionsDelete)
     .then((response) => {
       if (response.status === 204) {
-        alert("Delete Good");
         location.reload();
       } else {
         console.log("bad requete");
