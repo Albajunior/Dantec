@@ -40,8 +40,10 @@ exports.readAll = async (req, res) => {
 
 exports.mesBon= async (req, res) => {
   try {
+    const Id_Medecin = req.auth.userId;
+    //console.log(Id_Medecin);
     const bon_Cmd = await Bon_Cmd.find({
-      Id_Medecin: req.auth.userId
+      Id_Medecin
     });
     res.status(200).json(bon_Cmd);
   } catch (error) {

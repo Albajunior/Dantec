@@ -36,11 +36,10 @@ if (!sessionStorage.getItem("User")) {
           "Error. Veuillez lancé le serveur local (Port 3000) ? Si le problème persiste, contactez-nous.",
           error
         );
-        // Recharge la page actuelle
         location.reload();
       })
       .then(function (data) { 
-        console.log(data.length);
+        console.log(data);
         if (data.length == 0) {
             document.querySelector('.vide').innerHTML = 'Aucune demande';
         }
@@ -72,7 +71,8 @@ if (!sessionStorage.getItem("User")) {
                     <li class="list-group-item">Groupe Sanguin : ${data[m].Groupe_Sanguin}</li>
                     <li class="list-group-item">Nombre de Poche : ${data[m].Nombre_Poche}</li>
                     <li class="list-group-item">Degres d'urdence : ${data[m].Degres_urgence}</li>
-                    <li class="list-group-item">${data[m].Numero_Salle}</li>
+                    <li class="list-group-item">Numero Salle: ${data[m].Numero_Salle}</li>
+                    <li class="list-group-item">Sexe: ${data[m].sexe}</li>
                     <li class="list-group-item">Medecin : ${data[m].Nom_Medecin}</li>
                     <li class="list-group-item">${data[m].createDate}</li>
                   </ul>
@@ -98,7 +98,8 @@ if (!sessionStorage.getItem("User")) {
                     <li class="list-group-item">Groupe Sanguin : ${data[m].Groupe_Sanguin}</li>
                     <li class="list-group-item">Nombre de Poche : ${data[m].Nombre_Poche}</li>
                     <li class="list-group-item">Degres d'urdence : ${data[m].Degres_urgence}</li>
-                    <li class="list-group-item">${data[m].Numero_Salle}</li>
+                    <li class="list-group-item">Numero Salle: ${data[m].Numero_Salle}</li>
+                    <li class="list-group-item">Sexe: ${data[m].sexe}</li>
                     <li class="list-group-item">Medecin : ${data[m].Nom_Medecin}</li>
                     <li class="list-group-item">${data[m].createDate}</li>
                   </ul>

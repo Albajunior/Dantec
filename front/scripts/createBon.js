@@ -20,11 +20,10 @@ document.getElementById("btnAdd").addEventListener("click", function (e) {
   
   controleNom();
   controlePrenom();
-  controleGroupS();
   controleNombrePoche();
   controleNumero_Salle();
 
-  if (controleNom() && controlePrenom() && controleGroupS() && controleNombrePoche() && controleNumero_Salle()) {
+  if (controleNom() && controlePrenom() && controleNombrePoche() && controleNumero_Salle()) {
     const Bon = {
       NomPatient: NomPatient,
       PrenomPatient: PrenomPatient,
@@ -55,8 +54,8 @@ document.getElementById("btnAdd").addEventListener("click", function (e) {
         if (response.status === 201) {
           // Récupérer les données renvoyées par la requête
           response.json().then((data) => {
-            console.log("Bon de Cmd creer avec succès :", data);
-            console.log(data.age);
+            alert("Bon de Cmd creer avec succès :");
+            window.location.href = "profile.html";
           });
         } else {
           // Le statut de la réponse n'est pas 201
@@ -73,7 +72,6 @@ document.getElementById("btnAdd").addEventListener("click", function (e) {
 let NomPatientErrorMsg = document.querySelector("#NomPatientErrorMsg");
 let PrenomPatientErrorMsg = document.querySelector("#PrenomPatientErrorMsg");
 let ageErrorMsg = document.querySelector("#ageErrorMsg");
-let groupe_SanguinErrorMsg = document.querySelector("#groupe_SanguinErrorMsg");
 let nombre_PocheErrorMsg = document.querySelector("#nombre_PocheErrorMsg");
 let numero_SalleErrorMsg = document.querySelector("#numero_SalleErrorMsg");
 
@@ -114,16 +112,6 @@ function controleNombrePoche() {
   }
 }
 
-function controleGroupS() {
-  if (!groupe_Sanguin.checkValidity()) {
-    groupe_SanguinErrorMsg.textContent = "Numero de Salle incorect ";
-    groupe_SanguinErrorMsg.style.color = "red";
-    return false;
-  } else {
-    groupe_SanguinErrorMsg.textContent = "";
-    return true;
-  }
-}
 
 function controleNumero_Salle() {
   if (!numero_Salle.checkValidity()) {

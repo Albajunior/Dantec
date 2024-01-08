@@ -80,11 +80,19 @@
                 </div>
                 <div class="cart__order__form__question">
                   <label for="groupe_Sanguin">Groupe_Sanguin: </label>
-                  <input type="groupe_Sanguin" name="groupe_Sanguin" id="groupe_Sanguin" pattern=".{3}" required />
-                  <p id="groupe_SanguinErrorMsg"></p>
+                  <select id="groupe_Sanguin" name="groupe_Sanguin">
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                  </select>
                 </div>
                 <div class="cart__order__form__question">
-                  <label for="degres_urgence">Degres d'urgence: </label>
+                  <label for="degres_urgence">Dégrés d'urgence: </label>
                   <select id="degres_urgence" name="degres_urgence">
                     <option value="1">1</option>
                     <option value="2">2 (Urgence) </option>
@@ -93,12 +101,12 @@
                 </div>
                 <div class="cart__order__form__question">
                     <label for="nombre_Poche">Nombre de Poche: </label>
-                    <input type="nombre_Poche" name="nombre_Poche" id="nombre_Poche" pattern="[1-9]|10" required />
+                    <input type="number" name="nombre_Poche" id="nombre_Poche" pattern="[1-9]|10" required />
                     <p id="nombre_PocheErrorMsg"></p>
                 </div>
                 <div class="cart__order__form__question">
                     <label for="numero_Salle">numero Salle Patient: </label>
-                    <input type="numero_Salle" name="numero_Salle" id="numero_Salle" pattern=".{5}" />
+                    <input name="numero_Salle" id="numero_Salle" pattern=".{5}" />
                     <p id="numero_SalleErrorMsg"></p>
                 </div>
 

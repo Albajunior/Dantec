@@ -35,6 +35,12 @@ const BonShema = new mongoose.Schema({
     ref: "User",
   },
   
+  Id_Medecin: {
+    required: [true, "Required Field"],
+    type: mongoose.Schema.Types.String,
+    ref: "User",
+  },
+  
   createDate: { type: Date, required: [true, "why no Date"] },
 
 });

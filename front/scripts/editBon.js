@@ -58,7 +58,6 @@ if (!idBon || !token) {
         <div class="cart__order__form__question">
           <label for="sexe">Sexe: </label>
           <select id="sexe" name="sexe" >
-            <option value=""></option>
             <option value="F">Féminin</option>
             <option value="M">Masculin</option>
           </select>
@@ -93,14 +92,10 @@ if (!idBon || !token) {
 
         <div class="cart__order__form__question">
           <label for="degres_urgence">Degres d'urgence: </label>
-          <input
-            type="degres_urgence"
-            name="degres_urgence"
-            id="degres_urgence"
-            required
-            value="${data.bon_Cmd.Degres_urgence}"
-          />
-          <p id="degres_urgencerrorMsg"></p>
+          <select id="degres_urgence" name="degres_urgence">
+            <option value="1">1</option>
+            <option value="2">2 (Urgence) </option>
+          </select>
         </div>
 
         <div class="cart__order__form__question">
@@ -192,7 +187,6 @@ function editbon(idBon, optionsEdit) {
     })
     .catch((error) => {
       alert("Error 404 ", error);
-      // Recharge la page actuelle
       // location.reload();
     });
 }

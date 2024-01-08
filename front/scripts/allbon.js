@@ -72,7 +72,8 @@ function getAllBon() {
                   <li class="list-group-item">Groupe Sanguin : ${data[m].Groupe_Sanguin}</li>
                   <li class="list-group-item">Nombre de Poche : ${data[m].Nombre_Poche}</li>
                   <li class="list-group-item">Degres d'urdence : ${data[m].Degres_urgence}</li>
-                  <li class="list-group-item">${data[m].Numero_Salle}</li>
+                  <li class="list-group-item">Numero Salle: ${data[m].Numero_Salle}</li>
+                  <li class="list-group-item">Sexe: ${data[m].sexe}</li>
                   <li class="list-group-item">Medecin : ${data[m].Nom_Medecin}</li>
                   <li class="list-group-item">${data[m].createDate}</li>
                 </ul>
@@ -98,7 +99,8 @@ function getAllBon() {
                   <li class="list-group-item">Groupe Sanguin : ${data[m].Groupe_Sanguin}</li>
                   <li class="list-group-item">Nombre de Poche : ${data[m].Nombre_Poche}</li>
                   <li class="list-group-item">Degres d'urdence : ${data[m].Degres_urgence}</li>
-                  <li class="list-group-item">${data[m].Numero_Salle}</li>
+                  <li class="list-group-item">Numero Salle: ${data[m].Numero_Salle}</li>
+                  <li class="list-group-item">Sexe: ${data[m].sexe}</li>
                   <li class="list-group-item">Medecin : ${data[m].Nom_Medecin}</li>
                   <li class="list-group-item">${data[m].createDate}</li>
                 </ul>
