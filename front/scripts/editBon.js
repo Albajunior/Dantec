@@ -67,8 +67,8 @@ if (!idBon || !token) {
         <div class="cart__order__form__question">
           <label for="etat">Etat: </label>
           <select id="etat" name="etat" >
-            <option value="true">Terminé</option>
             <option value="false">En cours</option>
+            <option value="true">Terminé</option>
           </select>
         </div>
 

@@ -30,7 +30,7 @@ exports.create = async (req, res) => {
 
 exports.readAll = async (req, res) => {
   try {
-    const bon_Cmd = await Bon_Cmd.find({});
+    const bon_Cmd = await Bon_Cmd.find().sort({ Degres_urgence: -1 });
     res.status(200).json(bon_Cmd);
   } catch (error) {
     console.error(error);
